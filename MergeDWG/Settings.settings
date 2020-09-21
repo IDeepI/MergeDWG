@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MergeDWG" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="lispFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d:\Work\Soft\Autocad\Собрать в один.lsp</Value>
+    </Setting>
+    <Setting Name="templateFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d:\Work\Soft\Autocad\EmptyTemplate.dwg</Value>
+    </Setting>
+    <Setting Name="deltaX" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
