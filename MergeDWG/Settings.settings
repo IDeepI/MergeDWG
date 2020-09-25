@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="lispFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">d:\Work\Soft\Autocad\Собрать в один.lsp</Value>
+      <Value Profile="(Default)">UniteInOne.lsp</Value>
     </Setting>
     <Setting Name="templateFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">d:\Work\Soft\Autocad\EmptyTemplate.dwg</Value>
+      <Value Profile="(Default)">EmptyTemplate.dwg</Value>
     </Setting>
     <Setting Name="deltaX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>

@@ -25,7 +25,7 @@ namespace MergeDWG {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("d:\\Work\\Soft\\Autocad\\Собрать в один.lsp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("UniteInOne.lsp")]
         public string lispFilePath {
             get {
                 return ((string)(this["lispFilePath"]));
@@ -37,7 +37,7 @@ namespace MergeDWG {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("d:\\Work\\Soft\\Autocad\\EmptyTemplate.dwg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EmptyTemplate.dwg")]
         public string templateFilePath {
             get {
                 return ((string)(this["templateFilePath"]));

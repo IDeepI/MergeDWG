@@ -12,7 +12,7 @@ namespace MergeDWG
         static string mergedFile;
         static void Main(string[] args)
         {
-
+            Console.WriteLine($"Аргументов { args.Length }");
             if (args.Length == 0)
             {
                 string input;
@@ -21,7 +21,7 @@ namespace MergeDWG
                 Settings.Default.templateFilePath = Settings.Default.templateFilePath;
                 Settings.Default.deltaX = Settings.Default.deltaX;
 
-                Console.WriteLine($"Аргументов { args.Length }");
+                
 
                 Console.Write("lispFilePath - ");
                 input = Console.ReadLine();
@@ -83,8 +83,9 @@ namespace MergeDWG
         static void CopyDWGTemplate(string fPath)
         {
             try
-            {
+            {                               
                 string templateFilePath = Settings.Default.templateFilePath;
+                
                 string mergedFilePath = Path.GetDirectoryName(fPath);
                 string mergedFileName = Path.GetFileName(fPath).Substring(0, 15) + ".dwg";
                 mergedFile = Path.Combine(mergedFilePath, mergedFileName);
