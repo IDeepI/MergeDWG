@@ -8,21 +8,22 @@ namespace MergeDWG
 {
     class Program
     {
+        // Variable fo lisp file code
         static StringBuilder lispCode = new StringBuilder("");
+        // Merged file path
         static string mergedFile;
         static void Main(string[] args)
         {
             Console.WriteLine($"Аргументов { args.Length }");
             if (args.Length == 0)
             {
+                // input from console
                 string input;
-
+                // Initialize settings
                 Settings.Default.lispFilePath = Settings.Default.lispFilePath;
                 Settings.Default.templateFilePath = Settings.Default.templateFilePath;
                 Settings.Default.deltaX = Settings.Default.deltaX;
-
                 
-
                 Console.Write("lispFilePath - ");
                 input = Console.ReadLine();
                 if (input != "")
@@ -60,7 +61,9 @@ namespace MergeDWG
             }
 
         }
-
+        /// <summary>
+        /// Generate lisp file for AutoCade (got to be APPLOAD by default in AC + switch SECURELOAD to 0)
+        /// </summary>
         static void CreateLispFile()
         {
             try
@@ -79,7 +82,10 @@ namespace MergeDWG
                 Console.ReadKey();
             }
         }
-
+        /// <summary>
+        /// Make copy of template AutoCade file
+        /// </summary>
+        /// <param name="fPath"> Path to AC template </param>
         static void CopyDWGTemplate(string fPath)
         {
             try
@@ -101,17 +107,21 @@ namespace MergeDWG
                 Console.ReadKey();
             }
         }
-
+        /// <summary>
+        ///  Generate lisp code for AutoCade
+        /// </summary>
+        /// <param name="filePaths">File paths which we got to merge</param>
         static void CreateLispCode(string[] filePaths)
         {
             try
             {
+                // "ii" - name for autocad function
                 lispCode.Append("(defun c:ii() ");
 
                 string fileName;
                 int xPos = 0;
 
-                // Сдвиг по оси x для следующего чертежа
+                // Offset by X for new sheet placement
                 int deltaX = Settings.Default.deltaX;
 
                 foreach (var filePath in filePaths)
