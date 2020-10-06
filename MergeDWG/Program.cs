@@ -93,7 +93,12 @@ namespace MergeDWG
                 string templateFilePath = Settings.Default.templateFilePath;
                 
                 string mergedFilePath = Path.GetDirectoryName(fPath);
-                string mergedFileName = Path.GetFileName(fPath).Substring(0, 15) + ".dwg";
+                string mergedFileName = Path.GetFileNameWithoutExtension(fPath);
+                if (mergedFileName.Length > 6)
+                {               
+                    mergedFileName = mergedFileName.Substring(0, mergedFileName.Length - 5) + ".dwg";
+                }
+               
                 mergedFile = Path.Combine(mergedFilePath, mergedFileName);
 
                 // Use the Path.Combine method to safely append the file name to the path.
@@ -105,6 +110,11 @@ namespace MergeDWG
             {
                 Console.WriteLine(dirNotFound.Message);
                 Console.ReadKey();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         /// <summary>
