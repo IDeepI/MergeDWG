@@ -96,7 +96,7 @@ namespace MergeDWG
                 string mergedFileName = Path.GetFileNameWithoutExtension(fPath);
                 if (mergedFileName.Length > 6)
                 {               
-                    mergedFileName = mergedFileName.Substring(0, mergedFileName.Length - 5) + ".dwg";
+                    mergedFileName = mergedFileName.Substring(0, mergedFileName.IndexOf("__")) + ".dwg";
                 }
                
                 mergedFile = Path.Combine(mergedFilePath, mergedFileName);
