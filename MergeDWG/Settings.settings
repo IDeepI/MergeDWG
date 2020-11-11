@@ -11,5 +11,8 @@
     <Setting Name="deltaX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
     </Setting>
+    <Setting Name="minFileNameLength" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

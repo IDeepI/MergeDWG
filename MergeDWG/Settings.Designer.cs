@@ -58,5 +58,17 @@ namespace MergeDWG {
                 this["deltaX"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public byte minFileNameLength {
+            get {
+                return ((byte)(this["minFileNameLength"]));
+            }
+            set {
+                this["minFileNameLength"] = value;
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace MergeDWG
         static string mergedFile;
         static void Main(string[] args)
         {
+            Console.WriteLine($"MergeDWG");
             Console.WriteLine($"Аргументов { args.Length }");
             if (args.Length == 0)
             {
@@ -23,6 +24,7 @@ namespace MergeDWG
                 Settings.Default.lispFilePath = Settings.Default.lispFilePath;
                 Settings.Default.templateFilePath = Settings.Default.templateFilePath;
                 Settings.Default.deltaX = Settings.Default.deltaX;
+                Settings.Default.minFileNameLength = Settings.Default.minFileNameLength;
                 
                 Console.Write("lispFilePath - ");
                 input = Console.ReadLine();
@@ -45,6 +47,14 @@ namespace MergeDWG
                 {
                     Int32.TryParse(input, out int deltaX);
                     Settings.Default.deltaX = deltaX;
+                }
+
+                Console.Write("minFileNameLength - ");
+                input = Console.ReadLine();
+                if (input != "")
+                {
+                    Int32.TryParse(input, out int minFileNameLength);
+                    Settings.Default.minFileNameLength = (byte)minFileNameLength;
                 }
 
                 Settings.Default.Save();
@@ -91,12 +101,15 @@ namespace MergeDWG
             try
             {                               
                 string templateFilePath = Settings.Default.templateFilePath;
-                
+                int minFileNameLength = Settings.Default.minFileNameLength;
+
+
                 string mergedFilePath = Path.GetDirectoryName(fPath);
-                string mergedFileName = Path.GetFileNameWithoutExtension(fPath);
-                if (mergedFileName.Length > 6)
+                string mergedFileName = Path.GetFileNameWithoutExtension(fPath);               
+
+                if (mergedFileName.Length > minFileNameLength)
                 {               
-                    mergedFileName = mergedFileName.Substring(0, mergedFileName.IndexOf("__")) + ".dwg";
+                    mergedFileName = mergedFileName.Substring(0, mergedFileName.Length - minFileNameLength) + ".dwg";
                 }
                
                 mergedFile = Path.Combine(mergedFilePath, mergedFileName);
@@ -111,9 +124,10 @@ namespace MergeDWG
                 Console.WriteLine(dirNotFound.Message);
                 Console.ReadKey();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
                 throw;
             }
         }
